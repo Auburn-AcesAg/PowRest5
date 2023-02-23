@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PowModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="510" />
+          <Property Name="ProjectID" Type="nvarchar" MaxLength="510" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Year" Type="nvarchar" MaxLength="10" />
+          <Property Name="IsUsed" Type="nvarchar" MaxLength="10" />
+          <Property Name="Event" Type="nvarchar" MaxLength="255" />
+          <Property Name="Recurrence" Type="nvarchar(max)" />
+          <Property Name="UpdateMode" Type="nvarchar" MaxLength="255" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatorID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Participants" Type="nvarchar(max)" />
+          <Property Name="Team" Type="nvarchar" MaxLength="255" />
+          <Property Name="Program" Type="nvarchar" MaxLength="255" />
+          <Property Name="StartTime" Type="nvarchar" MaxLength="255" />
+          <Property Name="Duration" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsPublic" Type="nvarchar" MaxLength="255" />
+          <Property Name="County" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Appointment" Type="varchar" MaxLength="20" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Fee" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="100" />
+          <Property Name="URL" Type="nvarchar" MaxLength="300" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContactEmail" Type="nvarchar" MaxLength="255" />
+          <Property Name="AnnounceCounty" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ContactApps">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="ActivityID" Type="int" />
+          <Property Name="Attendees" Type="int" />
+          <Property Name="ContactType" Type="nvarchar" MaxLength="255" />
+          <Property Name="Program" Type="nvarchar" MaxLength="255" />
+          <Property Name="Year" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="raian" Type="nvarchar" MaxLength="255" />
+          <Property Name="rapi" Type="nvarchar" MaxLength="255" />
+          <Property Name="rblack" Type="nvarchar" MaxLength="255" />
+          <Property Name="rfmale" Type="nvarchar" MaxLength="255" />
+          <Property Name="rhisp" Type="nvarchar" MaxLength="255" />
+          <Property Name="rmale" Type="nvarchar" MaxLength="255" />
+          <Property Name="rnftf" Type="nvarchar" MaxLength="255" />
+          <Property Name="rother" Type="nvarchar" MaxLength="255" />
+          <Property Name="rwhite" Type="nvarchar" MaxLength="255" />
+          <Property Name="ryouth" Type="nvarchar" MaxLength="255" />
+          <Property Name="uadult" Type="nvarchar" MaxLength="255" />
+          <Property Name="uaian" Type="nvarchar" MaxLength="255" />
+          <Property Name="uapi" Type="nvarchar" MaxLength="255" />
+          <Property Name="ublack" Type="nvarchar" MaxLength="255" />
+          <Property Name="ufmale" Type="nvarchar" MaxLength="255" />
+          <Property Name="uhisp" Type="nvarchar" MaxLength="255" />
+          <Property Name="umale" Type="nvarchar" MaxLength="255" />
+          <Property Name="unftf" Type="nvarchar" MaxLength="255" />
+          <Property Name="uother" Type="nvarchar" MaxLength="255" />
+          <Property Name="uwhite" Type="nvarchar" MaxLength="255" />
+          <Property Name="uyouth" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatorID" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsUsed" Type="nvarchar" MaxLength="255" />
+          <Property Name="radult" Type="nvarchar" MaxLength="255" />
+          <Property Name="Evaluation" Type="nvarchar(max)" />
+          <Property Name="ExternalFactor" Type="nvarchar(max)" />
+          <Property Name="Outcomes" Type="nvarchar(max)" />
+          <Property Name="FileLink" Type="nvarchar" MaxLength="255" />
+          <Property Name="County" Type="nvarchar(max)" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="rMore" Type="nvarchar" MaxLength="255" />
+          <Property Name="uMore" Type="nvarchar" MaxLength="255" />
+          <Property Name="IsPlan" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActivityID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="510" />
+          <Property Name="Year" Type="nvarchar" MaxLength="10" />
+          <Property Name="Month" Type="int" />
+          <Property Name="Day" Type="int" />
+          <Property Name="ProjectID" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Creator" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created By" Type="nvarchar" MaxLength="255" />
+          <Property Name="Team" Type="nvarchar" MaxLength="510" />
+          <Property Name="Program" Type="nvarchar" MaxLength="510" />
+          <Property Name="CreatorID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Participants" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Hour" Type="nvarchar" MaxLength="255" />
+          <Property Name="Minute" Type="nvarchar" MaxLength="255" />
+          <Property Name="AM" Type="nvarchar" MaxLength="255" />
+          <Property Name="Time" Type="int" />
+          <Property Name="Duration" Type="nvarchar" MaxLength="255" />
+          <Property Name="County" Type="nvarchar" MaxLength="255" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="appointment" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="StaffDirectory">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="PreferredFirstName" Type="varchar" MaxLength="100" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="200" />
+          <Property Name="Division" Type="varchar" MaxLength="200" />
+          <Property Name="JobTitle" Type="varchar" MaxLength="200" />
+          <Property Name="Department" Type="varchar" MaxLength="200" />
+          <Property Name="timestamp" Type="datetime" />
+          <Property Name="IsUsed" Type="nvarchar" MaxLength="10" />
+          <Property Name="PlanningUnit" Type="nvarchar(max)" />
+          <Property Name="PositionNumber" Type="nvarchar" MaxLength="200" />
+          <Property Name="SupervisorNumber" Type="nvarchar" MaxLength="200" />
+          <Property Name="HiredDate" Type="datetime" />
+          <Property Name="PromotedDate" Type="datetime" />
+          <Property Name="MajorProgram" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityContainer Name="PowModelStoreContainer">
+          <EntitySet Name="Activity" EntityType="Self.Activity" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ContactApps" EntityType="Self.ContactApps" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="StaffDirectory" EntityType="Self.StaffDirectory" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PowModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="510" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectID" Type="String" MaxLength="510" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Event" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Recurrence" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateMode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatorID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Participants" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Team" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Program" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="StartTime" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsPublic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Appointment" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fee" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="URL" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContactEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AnnounceCounty" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActivityID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="510" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Month" Type="Int32" />
+          <Property Name="Day" Type="Int32" />
+          <Property Name="ProjectID" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created_By" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Team" Type="String" MaxLength="510" FixedLength="false" Unicode="true" />
+          <Property Name="Program" Type="String" MaxLength="510" FixedLength="false" Unicode="true" />
+          <Property Name="CreatorID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Participants" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Hour" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Minute" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AM" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Time" Type="Int32" />
+          <Property Name="Duration" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="appointment" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="PowEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Activities" EntityType="Self.Activity" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="StaffDirectories" EntityType="PowModel.StaffDirectory" />
+          <EntitySet Name="ContactApps" EntityType="PowModel.ContactApp" />
+        </EntityContainer>
+        <EntityType Name="StaffDirectory">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PreferredFirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Division" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="JobTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="timestamp" Type="DateTime" Precision="3" />
+          <Property Name="IsUsed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PlanningUnit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PositionNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SupervisorNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="HiredDate" Type="DateTime" Precision="3" />
+          <Property Name="PromotedDate" Type="DateTime" Precision="3" />
+          <Property Name="MajorProgram" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ContactApp">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="ActivityID" Type="Int32" />
+          <Property Name="Attendees" Type="Int32" />
+          <Property Name="ContactType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Program" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="raian" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="rapi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="rblack" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="rfmale" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="rhisp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="rmale" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="rnftf" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="rother" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="rwhite" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ryouth" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="uadult" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="uaian" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="uapi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ublack" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ufmale" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="uhisp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="umale" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="unftf" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="uother" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="uwhite" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="uyouth" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatorID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="radult" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Evaluation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExternalFactor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Outcomes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileLink" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Creator" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="rMore" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="uMore" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="IsPlan" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="PowModelStoreContainer" CdmEntityContainer="PowEntities">
+          <EntitySetMapping Name="Activities">
+            <EntityTypeMapping TypeName="PowModel.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Event" ColumnName="Event" />
+                <ScalarProperty Name="Recurrence" ColumnName="Recurrence" />
+                <ScalarProperty Name="UpdateMode" ColumnName="UpdateMode" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="CreatorID" ColumnName="CreatorID" />
+                <ScalarProperty Name="Participants" ColumnName="Participants" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Appointment" ColumnName="Appointment" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Fee" ColumnName="Fee" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="AnnounceCounty" ColumnName="AnnounceCounty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="PowModel.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ActivityID" ColumnName="ActivityID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="Created_By" ColumnName="Created By" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="CreatorID" ColumnName="CreatorID" />
+                <ScalarProperty Name="Participants" ColumnName="Participants" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Hour" ColumnName="Hour" />
+                <ScalarProperty Name="Minute" ColumnName="Minute" />
+                <ScalarProperty Name="AM" ColumnName="AM" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="appointment" ColumnName="appointment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffDirectories">
+            <EntityTypeMapping TypeName="PowModel.StaffDirectory">
+              <MappingFragment StoreEntitySet="StaffDirectory">
+                <ScalarProperty Name="MajorProgram" ColumnName="MajorProgram" />
+                <ScalarProperty Name="PromotedDate" ColumnName="PromotedDate" />
+                <ScalarProperty Name="HiredDate" ColumnName="HiredDate" />
+                <ScalarProperty Name="SupervisorNumber" ColumnName="SupervisorNumber" />
+                <ScalarProperty Name="PositionNumber" ColumnName="PositionNumber" />
+                <ScalarProperty Name="PlanningUnit" ColumnName="PlanningUnit" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="PreferredFirstName" ColumnName="PreferredFirstName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactApps">
+            <EntityTypeMapping TypeName="PowModel.ContactApp">
+              <MappingFragment StoreEntitySet="ContactApps">
+                <ScalarProperty Name="IsPlan" ColumnName="IsPlan" />
+                <ScalarProperty Name="uMore" ColumnName="uMore" />
+                <ScalarProperty Name="rMore" ColumnName="rMore" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Creator" ColumnName="Creator" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="FileLink" ColumnName="FileLink" />
+                <ScalarProperty Name="Outcomes" ColumnName="Outcomes" />
+                <ScalarProperty Name="ExternalFactor" ColumnName="ExternalFactor" />
+                <ScalarProperty Name="Evaluation" ColumnName="Evaluation" />
+                <ScalarProperty Name="radult" ColumnName="radult" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="CreatorID" ColumnName="CreatorID" />
+                <ScalarProperty Name="uyouth" ColumnName="uyouth" />
+                <ScalarProperty Name="uwhite" ColumnName="uwhite" />
+                <ScalarProperty Name="uother" ColumnName="uother" />
+                <ScalarProperty Name="unftf" ColumnName="unftf" />
+                <ScalarProperty Name="umale" ColumnName="umale" />
+                <ScalarProperty Name="uhisp" ColumnName="uhisp" />
+                <ScalarProperty Name="ufmale" ColumnName="ufmale" />
+                <ScalarProperty Name="ublack" ColumnName="ublack" />
+                <ScalarProperty Name="uapi" ColumnName="uapi" />
+                <ScalarProperty Name="uaian" ColumnName="uaian" />
+                <ScalarProperty Name="uadult" ColumnName="uadult" />
+                <ScalarProperty Name="ryouth" ColumnName="ryouth" />
+                <ScalarProperty Name="rwhite" ColumnName="rwhite" />
+                <ScalarProperty Name="rother" ColumnName="rother" />
+                <ScalarProperty Name="rnftf" ColumnName="rnftf" />
+                <ScalarProperty Name="rmale" ColumnName="rmale" />
+                <ScalarProperty Name="rhisp" ColumnName="rhisp" />
+                <ScalarProperty Name="rfmale" ColumnName="rfmale" />
+                <ScalarProperty Name="rblack" ColumnName="rblack" />
+                <ScalarProperty Name="rapi" ColumnName="rapi" />
+                <ScalarProperty Name="raian" ColumnName="raian" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="ContactType" ColumnName="ContactType" />
+                <ScalarProperty Name="Attendees" ColumnName="Attendees" />
+                <ScalarProperty Name="ActivityID" ColumnName="ActivityID" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams />
+  </Designer>
+</edmx:Edmx>

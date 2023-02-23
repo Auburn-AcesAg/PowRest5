@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PowSumModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblCivilRights">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SPID" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="200" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="200" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Timestamp" Type="datetime" />
+          <Property Name="FileRef" Type="nvarchar" MaxLength="500" />
+          <Property Name="County" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tblDeskAudits">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SPID" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="200" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="200" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Timestamp" Type="datetime" />
+          <Property Name="FileRef" Type="nvarchar" MaxLength="500" />
+          <Property Name="County" Type="nvarchar" MaxLength="100" />
+          <Property Name="Efforts" Type="nvarchar(max)" />
+          <Property Name="Success" Type="nvarchar(max)" />
+          <Property Name="IsUsed" Type="nvarchar" MaxLength="10" />
+          <Property Name="REA" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsSubmitted" Type="bit" />
+          <Property Name="Year" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tblDeskAuditsNEW">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SPID" Type="int" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="200" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="200" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Timestamp" Type="datetime" />
+          <Property Name="FileRef" Type="nvarchar" MaxLength="500" />
+          <Property Name="County" Type="nvarchar" MaxLength="100" />
+          <Property Name="field365" Type="nvarchar(max)" />
+          <Property Name="field366" Type="nvarchar(max)" />
+          <Property Name="field367" Type="nvarchar(max)" />
+          <Property Name="field368" Type="nvarchar(max)" />
+          <Property Name="field369" Type="nvarchar(max)" />
+          <Property Name="field370" Type="nvarchar(max)" />
+          <Property Name="field371" Type="nvarchar(max)" />
+          <Property Name="field372" Type="nvarchar(max)" />
+          <Property Name="field373" Type="nvarchar(max)" />
+          <Property Name="field374" Type="nvarchar(max)" />
+          <Property Name="field375" Type="nvarchar(max)" />
+          <Property Name="field496" Type="nvarchar(max)" />
+          <Property Name="field497" Type="nvarchar(max)" />
+          <Property Name="field498" Type="nvarchar(max)" />
+          <Property Name="IsUsed" Type="bit" />
+          <Property Name="IsSubmitted" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblOtherAdvisers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PID" Type="int" />
+          <Property Name="Timestamp" Type="datetime" />
+          <Property Name="otherAdvisoryGroup" Type="nvarchar" MaxLength="500" />
+          <Property Name="otherWhite" Type="nvarchar" MaxLength="200" />
+          <Property Name="otherBlack" Type="nvarchar" MaxLength="200" />
+          <Property Name="otherAsianPacific" Type="nvarchar" MaxLength="200" />
+          <Property Name="otherIndian" Type="nvarchar" MaxLength="200" />
+          <Property Name="otherOther" Type="nvarchar" MaxLength="200" />
+          <Property Name="otherNotDetermined" Type="nvarchar" MaxLength="200" />
+          <Property Name="otherHispanic" Type="nvarchar" MaxLength="200" />
+          <Property Name="otherFemales" Type="nvarchar" MaxLength="200" />
+          <Property Name="otherMales" Type="nvarchar" MaxLength="200" />
+          <Property Name="otherMeetings" Type="nvarchar" MaxLength="200" />
+          <Property Name="otherAttendance" Type="nvarchar" MaxLength="200" />
+          <Property Name="otherBylaws" Type="datetime" />
+          <Property Name="otherCouncil" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tblRows">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SectionID" Type="int" />
+          <Property Name="LeadPerson" Type="nvarchar" MaxLength="200" />
+          <Property Name="Instructors" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProposedDate" Type="datetime" />
+          <Property Name="ProposedLoc" Type="nvarchar" MaxLength="500" />
+          <Property Name="ActualDate" Type="nvarchar" MaxLength="500" />
+          <Property Name="ActualLoc" Type="nvarchar" MaxLength="500" />
+          <Property Name="County" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsUsed" Type="nvarchar" MaxLength="10" />
+          <Property Name="Timestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblSections">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SummaryID" Type="int" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Audience" Type="nvarchar(max)" />
+          <Property Name="IsUsed" Type="nvarchar" MaxLength="10" />
+          <Property Name="Timestamp" Type="datetime" />
+          <Property Name="Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="LeadPerson" Type="nvarchar" MaxLength="200" />
+          <Property Name="Instructors" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProposedDate" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProposedLoc" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="tblSummaries">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SPID" Type="int" />
+          <Property Name="RequestorID" Type="nvarchar" MaxLength="200" />
+          <Property Name="RequestorName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Team" Type="nvarchar" MaxLength="200" />
+          <Property Name="SetNo" Type="nvarchar" MaxLength="10" />
+          <Property Name="IsUsed" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="200" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="200" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Timestamp" Type="datetime" />
+          <Property Name="FileRef" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsFinalized" Type="nvarchar" MaxLength="10" />
+          <Property Name="TypeID" Type="int" />
+          <Property Name="Year" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_tblOtherAdvisers_tblCivilRights">
+          <End Role="tblCivilRights" Type="Self.tblCivilRights" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblOtherAdvisers" Type="Self.tblOtherAdvisers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCivilRights">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblOtherAdvisers">
+              <PropertyRef Name="PID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblRows_tblSections">
+          <End Role="tblSections" Type="Self.tblSections" Multiplicity="0..1" />
+          <End Role="tblRows" Type="Self.tblRows" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSections">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblRows">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSections_tblSummaries">
+          <End Role="tblSummaries" Type="Self.tblSummaries" Multiplicity="0..1" />
+          <End Role="tblSections" Type="Self.tblSections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSummaries">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblSections">
+              <PropertyRef Name="SummaryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PowSumModelStoreContainer">
+          <EntitySet Name="tblCivilRights" EntityType="Self.tblCivilRights" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDeskAudits" EntityType="Self.tblDeskAudits" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDeskAuditsNEW" EntityType="Self.tblDeskAuditsNEW" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOtherAdvisers" EntityType="Self.tblOtherAdvisers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRows" EntityType="Self.tblRows" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSections" EntityType="Self.tblSections" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSummaries" EntityType="Self.tblSummaries" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblOtherAdvisers_tblCivilRights" Association="Self.FK_tblOtherAdvisers_tblCivilRights">
+            <End Role="tblCivilRights" EntitySet="tblCivilRights" />
+            <End Role="tblOtherAdvisers" EntitySet="tblOtherAdvisers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblRows_tblSections" Association="Self.FK_tblRows_tblSections">
+            <End Role="tblSections" EntitySet="tblSections" />
+            <End Role="tblRows" EntitySet="tblRows" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSections_tblSummaries" Association="Self.FK_tblSections_tblSummaries">
+            <End Role="tblSummaries" EntitySet="tblSummaries" />
+            <End Role="tblSections" EntitySet="tblSections" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PowSumModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblRow">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SectionID" Type="Int32" />
+          <Property Name="LeadPerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Instructors" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProposedDate" Type="DateTime" Precision="3" />
+          <Property Name="ProposedLoc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ActualDate" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ActualLoc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblSection" Relationship="Self.FK_tblRows_tblSections" FromRole="tblRows" ToRole="tblSections" />
+        </EntityType>
+        <EntityType Name="tblSection">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SummaryID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Audience" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="LeadPerson" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Instructors" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProposedDate" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProposedLoc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblRows" Relationship="Self.FK_tblRows_tblSections" FromRole="tblSections" ToRole="tblRows" />
+          <NavigationProperty Name="tblSummary" Relationship="Self.FK_tblSections_tblSummaries" FromRole="tblSections" ToRole="tblSummaries" />
+        </EntityType>
+        <EntityType Name="tblSummary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SPID" Type="Int32" />
+          <Property Name="RequestorID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RequestorName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Team" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SetNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <Property Name="FileRef" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsFinalized" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TypeID" Type="Int32" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblSections" Relationship="Self.FK_tblSections_tblSummaries" FromRole="tblSummaries" ToRole="tblSections" />
+        </EntityType>
+        <Association Name="FK_tblRows_tblSections">
+          <End Role="tblSections" Type="Self.tblSection" Multiplicity="0..1" />
+          <End Role="tblRows" Type="Self.tblRow" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSections">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblRows">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblSections_tblSummaries">
+          <End Role="tblSummaries" Type="Self.tblSummary" Multiplicity="0..1" />
+          <End Role="tblSections" Type="Self.tblSection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSummaries">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblSections">
+              <PropertyRef Name="SummaryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PowSumEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblRows" EntityType="Self.tblRow" />
+          <EntitySet Name="tblSections" EntityType="Self.tblSection" />
+          <EntitySet Name="tblSummaries" EntityType="Self.tblSummary" />
+          <AssociationSet Name="FK_tblRows_tblSections" Association="Self.FK_tblRows_tblSections">
+            <End Role="tblSections" EntitySet="tblSections" />
+            <End Role="tblRows" EntitySet="tblRows" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblSections_tblSummaries" Association="Self.FK_tblSections_tblSummaries">
+            <End Role="tblSummaries" EntitySet="tblSummaries" />
+            <End Role="tblSections" EntitySet="tblSections" />
+          </AssociationSet>
+          <EntitySet Name="tblCivilRights" EntityType="PowSumModel.tblCivilRight" />
+          <EntitySet Name="tblOtherAdvisers" EntityType="PowSumModel.tblOtherAdviser" />
+          <AssociationSet Name="FK_tblOtherAdvisers_tblCivilRights" Association="PowSumModel.FK_tblOtherAdvisers_tblCivilRights">
+            <End Role="tblCivilRight" EntitySet="tblCivilRights" />
+            <End Role="tblOtherAdviser" EntitySet="tblOtherAdvisers" />
+          </AssociationSet>
+          <EntitySet Name="tblDeskAudits" EntityType="PowSumModel.tblDeskAudit" />
+          <EntitySet Name="tblDeskAuditsNEWs" EntityType="PowSumModel.tblDeskAuditsNEW" />
+        </EntityContainer>
+        <EntityType Name="tblCivilRight">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SPID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <Property Name="FileRef" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblOtherAdvisers" Relationship="PowSumModel.FK_tblOtherAdvisers_tblCivilRights" FromRole="tblCivilRight" ToRole="tblOtherAdviser" />
+        </EntityType>
+        <EntityType Name="tblOtherAdviser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PID" Type="Int32" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <Property Name="otherAdvisoryGroup" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="otherWhite" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="otherBlack" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="otherAsianPacific" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="otherIndian" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="otherOther" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="otherNotDetermined" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="otherHispanic" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="otherFemales" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="otherMales" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="otherMeetings" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="otherAttendance" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="otherBylaws" Type="DateTime" Precision="3" />
+          <Property Name="otherCouncil" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblCivilRight" Relationship="PowSumModel.FK_tblOtherAdvisers_tblCivilRights" FromRole="tblOtherAdviser" ToRole="tblCivilRight" />
+        </EntityType>
+        <Association Name="FK_tblOtherAdvisers_tblCivilRights">
+          <End Type="PowSumModel.tblCivilRight" Role="tblCivilRight" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PowSumModel.tblOtherAdviser" Role="tblOtherAdviser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCivilRight">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblOtherAdviser">
+              <PropertyRef Name="PID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblDeskAudit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SPID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <Property Name="FileRef" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Efforts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Success" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="REA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsSubmitted" Type="Boolean" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblDeskAuditsNEW">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SPID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <Property Name="FileRef" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="field365" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="field366" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="field367" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="field368" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="field369" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="field370" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="field371" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="field372" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="field373" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="field374" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="field375" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="field496" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="field497" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="field498" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="Boolean" />
+          <Property Name="IsSubmitted" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PowSumModelStoreContainer" CdmEntityContainer="PowSumEntities">
+          <EntitySetMapping Name="tblRows">
+            <EntityTypeMapping TypeName="PowSumModel.tblRow">
+              <MappingFragment StoreEntitySet="tblRows">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+                <ScalarProperty Name="LeadPerson" ColumnName="LeadPerson" />
+                <ScalarProperty Name="Instructors" ColumnName="Instructors" />
+                <ScalarProperty Name="ProposedDate" ColumnName="ProposedDate" />
+                <ScalarProperty Name="ProposedLoc" ColumnName="ProposedLoc" />
+                <ScalarProperty Name="ActualDate" ColumnName="ActualDate" />
+                <ScalarProperty Name="ActualLoc" ColumnName="ActualLoc" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSections">
+            <EntityTypeMapping TypeName="PowSumModel.tblSection">
+              <MappingFragment StoreEntitySet="tblSections">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SummaryID" ColumnName="SummaryID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Audience" ColumnName="Audience" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="LeadPerson" ColumnName="LeadPerson" />
+                <ScalarProperty Name="Instructors" ColumnName="Instructors" />
+                <ScalarProperty Name="ProposedDate" ColumnName="ProposedDate" />
+                <ScalarProperty Name="ProposedLoc" ColumnName="ProposedLoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSummaries">
+            <EntityTypeMapping TypeName="PowSumModel.tblSummary">
+              <MappingFragment StoreEntitySet="tblSummaries">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SPID" ColumnName="SPID" />
+                <ScalarProperty Name="RequestorID" ColumnName="RequestorID" />
+                <ScalarProperty Name="RequestorName" ColumnName="RequestorName" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="SetNo" ColumnName="SetNo" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="FileRef" ColumnName="FileRef" />
+                <ScalarProperty Name="IsFinalized" ColumnName="IsFinalized" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCivilRights">
+            <EntityTypeMapping TypeName="PowSumModel.tblCivilRight">
+              <MappingFragment StoreEntitySet="tblCivilRights">
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="FileRef" ColumnName="FileRef" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="SPID" ColumnName="SPID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOtherAdvisers">
+            <EntityTypeMapping TypeName="PowSumModel.tblOtherAdviser">
+              <MappingFragment StoreEntitySet="tblOtherAdvisers">
+                <ScalarProperty Name="otherCouncil" ColumnName="otherCouncil" />
+                <ScalarProperty Name="otherBylaws" ColumnName="otherBylaws" />
+                <ScalarProperty Name="otherAttendance" ColumnName="otherAttendance" />
+                <ScalarProperty Name="otherMeetings" ColumnName="otherMeetings" />
+                <ScalarProperty Name="otherMales" ColumnName="otherMales" />
+                <ScalarProperty Name="otherFemales" ColumnName="otherFemales" />
+                <ScalarProperty Name="otherHispanic" ColumnName="otherHispanic" />
+                <ScalarProperty Name="otherNotDetermined" ColumnName="otherNotDetermined" />
+                <ScalarProperty Name="otherOther" ColumnName="otherOther" />
+                <ScalarProperty Name="otherIndian" ColumnName="otherIndian" />
+                <ScalarProperty Name="otherAsianPacific" ColumnName="otherAsianPacific" />
+                <ScalarProperty Name="otherBlack" ColumnName="otherBlack" />
+                <ScalarProperty Name="otherWhite" ColumnName="otherWhite" />
+                <ScalarProperty Name="otherAdvisoryGroup" ColumnName="otherAdvisoryGroup" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDeskAudits">
+            <EntityTypeMapping TypeName="PowSumModel.tblDeskAudit">
+              <MappingFragment StoreEntitySet="tblDeskAudits">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="IsSubmitted" ColumnName="IsSubmitted" />
+                <ScalarProperty Name="REA" ColumnName="REA" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Success" ColumnName="Success" />
+                <ScalarProperty Name="Efforts" ColumnName="Efforts" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="FileRef" ColumnName="FileRef" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="SPID" ColumnName="SPID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDeskAuditsNEWs">
+            <EntityTypeMapping TypeName="PowSumModel.tblDeskAuditsNEW">
+              <MappingFragment StoreEntitySet="tblDeskAuditsNEW">
+                <ScalarProperty Name="IsSubmitted" ColumnName="IsSubmitted" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="field498" ColumnName="field498" />
+                <ScalarProperty Name="field497" ColumnName="field497" />
+                <ScalarProperty Name="field496" ColumnName="field496" />
+                <ScalarProperty Name="field375" ColumnName="field375" />
+                <ScalarProperty Name="field374" ColumnName="field374" />
+                <ScalarProperty Name="field373" ColumnName="field373" />
+                <ScalarProperty Name="field372" ColumnName="field372" />
+                <ScalarProperty Name="field371" ColumnName="field371" />
+                <ScalarProperty Name="field370" ColumnName="field370" />
+                <ScalarProperty Name="field369" ColumnName="field369" />
+                <ScalarProperty Name="field368" ColumnName="field368" />
+                <ScalarProperty Name="field367" ColumnName="field367" />
+                <ScalarProperty Name="field366" ColumnName="field366" />
+                <ScalarProperty Name="field365" ColumnName="field365" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="FileRef" ColumnName="FileRef" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="SPID" ColumnName="SPID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

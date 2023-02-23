@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f8bd961268364c33876c735bf1215261" Name="Diagram1">
+        <EntityTypeShape EntityType="PowModel.AdditionalTeam" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PowModel.county" Width="1.5" PointX="2.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PowModel.PowUser" Width="1.5" PointX="0.625" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PowModel.Program" Width="1.5" PointX="2.375" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PowModel.Project" Width="1.5" PointX="4.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PowModel.ProjectsHistory" Width="1.5" PointX="6" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PowModel.StaffDirectory" Width="1.5" PointX="13" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PowModel.Team" Width="1.5" PointX="15" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PowModel.ActivityProject" Width="1.5" PointX="11.375" PointY="0.5" />
+        <EntityTypeShape EntityType="PowModel.Event" Width="1.5" PointX="7.75" PointY="0.5" />
+        <EntityTypeShape EntityType="PowModel.TransactionLog" Width="1.5" PointX="2.375" PointY="5.375" />
+        <EntityTypeShape EntityType="PowModel.LeadPerson" Width="1.5" PointX="0.625" PointY="4.875" />
+        <EntityTypeShape EntityType="PowModel.Activity" Width="1.5" PointX="11.375" PointY="3.25" />
+        <EntityTypeShape EntityType="PowModel.vCountySet" Width="1.5" PointX="4.375" PointY="7.75" />
+        <EntityTypeShape EntityType="PowModel.Contact" Width="1.5" PointX="9.625" PointY="0.5" />
+        <EntityTypeShape EntityType="PowModel.ProjectInstructor" Width="1.5" PointX="6.75" PointY="7.75" />
+        <EntityTypeShape EntityType="PowModel.ProjectLeadPerson" Width="1.5" PointX="0.75" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

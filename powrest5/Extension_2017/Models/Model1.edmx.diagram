@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="da50881f43674804be3e29cb038d31fc" Name="Diagram1" ZoomLevel="70">
+        <EntityTypeShape EntityType="PowModel.ContactApp" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PowModel.Event" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PowModel.StaffDirectory" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PowModel.PowUser" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PowModel.Participant" Width="1.5" PointX="10.625" PointY="0.75" />
+        <EntityTypeShape EntityType="PowModel.Project" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="PowModel.AdditionalTeam" Width="1.5" PointX="8.75" PointY="3.25" />
+        <EntityTypeShape EntityType="PowModel.Program" Width="1.5" PointX="10.625" PointY="3.375" />
+        <EntityTypeShape EntityType="PowModel.ActivityProject" Width="1.5" PointX="12.5" PointY="0.75" />
+        <EntityTypeShape EntityType="PowModel.Team" Width="1.5" PointX="12.5" PointY="3.375" />
+        <EntityTypeShape EntityType="PowModel.common" Width="1.5" PointX="8.75" PointY="5.375" />
+        <EntityTypeShape EntityType="PowModel.Contact" Width="1.5" PointX="7.375" PointY="7.75" />
+        <EntityTypeShape EntityType="PowModel.Medium" Width="1.5" PointX="20.875" PointY="3.75" />
+        <EntityTypeShape EntityType="PowModel.MediaEvent" Width="1.5" PointX="9.375" PointY="7.75" />
+        <EntityTypeShape EntityType="PowModel.MediaType" Width="1.5" PointX="11.625" PointY="7.25" />
+        <EntityTypeShape EntityType="PowModel.MediaEventType" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="PowModel.Year" Width="1.5" PointX="11.375" PointY="10.75" />
+        <EntityTypeShape EntityType="PowModel.Activity" Width="1.5" PointX="0.5" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

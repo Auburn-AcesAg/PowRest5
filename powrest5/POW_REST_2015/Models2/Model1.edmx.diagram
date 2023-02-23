@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="92eb914b52a94b69b706fd570325aa29" Name="Diagram1">
+        <EntityTypeShape EntityType="PowModel2.Medium" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PowModel2.MediaEvent" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PowModel2.MediaEventDate" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="PowModel2.MediaEventMetric" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="PowModel2.MediaEventMetricType" Width="1.5" PointX="8.75" PointY="3.125" />
+        <EntityTypeShape EntityType="PowModel2.MediaEventSubType" Width="1.5" PointX="6.75" PointY="3.125" />
+        <EntityTypeShape EntityType="PowModel2.MediaEventType" Width="1.5" PointX="4.75" PointY="3.125" />
+        <EntityTypeShape EntityType="PowModel2.MediaMember" Width="1.5" PointX="0.75" PointY="6.75" />
+        <AssociationConnector Association="PowModel2.FK_Metrics_EventID" />
+        <AssociationConnector Association="PowModel2.FK_Metrics_TypeID" />
+        <AssociationConnector Association="PowModel2.FK__MediaEven__SubTy__290D0E62" />
+        <AssociationConnector Association="PowModel2.FK__MediaEven__Media__2724C5F0" />
+        <AssociationConnector Association="PowModel2.FK__MediaEven__Media__2818EA29" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

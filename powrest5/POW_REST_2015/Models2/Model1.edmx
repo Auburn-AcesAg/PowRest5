@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PowModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Media">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="2000" />
+          <Property Name="CreatorID" Type="nvarchar" MaxLength="100" />
+          <Property Name="Program" Type="nvarchar" MaxLength="500" />
+          <Property Name="Year" Type="nvarchar" MaxLength="10" />
+          <Property Name="Month" Type="nvarchar" MaxLength="20" />
+          <Property Name="County" Type="nvarchar(max)" />
+          <Property Name="Impact" Type="nvarchar(max)" />
+          <Property Name="Feedback" Type="nvarchar(max)" />
+          <Property Name="IsUsed" Type="nvarchar" MaxLength="10" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="Project" Type="nvarchar" MaxLength="500" />
+          <Property Name="Created" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MediaEventDates">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventID" Type="int" />
+          <Property Name="EventDate" Type="datetime" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="IsUsed" Type="bit" />
+        </EntityType>
+        <EntityType Name="MediaEventMetrics">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+          <Property Name="MetricTypeID" Type="int" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsUsed" Type="bit" />
+          <Property Name="Timestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MediaEventMetricTypes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubTypeID" Type="int" />
+          <Property Name="UID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="DataType" Type="char" MaxLength="1" />
+          <Property Name="Year" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsUsed" Type="bit" />
+          <Property Name="URL" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="MediaEvents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MediaID" Type="int" />
+          <Property Name="CreatorID" Type="nvarchar" MaxLength="200" />
+          <Property Name="MediaType" Type="nvarchar" MaxLength="200" />
+          <Property Name="EventTitle" Type="nvarchar(max)" />
+          <Property Name="EventDate" Type="datetime" />
+          <Property Name="Option1" Type="nvarchar(max)" />
+          <Property Name="Option2" Type="nvarchar(max)" />
+          <Property Name="Option3" Type="nvarchar(max)" />
+          <Property Name="Modified" Type="datetime" />
+          <Property Name="IsUsed" Type="nvarchar" MaxLength="10" />
+          <Property Name="Year" Type="nvarchar" MaxLength="10" />
+          <Property Name="Count2" Type="nvarchar" MaxLength="200" />
+          <Property Name="Description2" Type="nvarchar" MaxLength="200" />
+          <Property Name="EventTypeID" Type="int" />
+          <Property Name="EventSubTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="MediaEventSubTypes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MediaTypeID" Type="int" />
+          <Property Name="UID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Year" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsUsed" Type="bit" />
+        </EntityType>
+        <EntityType Name="MediaEventTypes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsUsed" Type="nvarchar" MaxLength="10" />
+          <Property Name="Year" Type="nvarchar" MaxLength="10" />
+          <Property Name="UID" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="MediaMembers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MediaID" Type="int" />
+          <Property Name="MemberID" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsUsed" Type="bit" />
+          <Property Name="Modified" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__MediaEven__Media__2724C5F0">
+          <End Role="MediaEventTypes" Type="Self.MediaEventTypes" Multiplicity="0..1" />
+          <End Role="MediaEventSubTypes" Type="Self.MediaEventSubTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaEventTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MediaEventSubTypes">
+              <PropertyRef Name="MediaTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MediaEven__Media__2818EA29">
+          <End Role="MediaEventTypes" Type="Self.MediaEventTypes" Multiplicity="0..1" />
+          <End Role="MediaEventSubTypes" Type="Self.MediaEventSubTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaEventTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MediaEventSubTypes">
+              <PropertyRef Name="MediaTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MediaEven__SubTy__290D0E62">
+          <End Role="MediaEventSubTypes" Type="Self.MediaEventSubTypes" Multiplicity="0..1" />
+          <End Role="MediaEventMetricTypes" Type="Self.MediaEventMetricTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaEventSubTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MediaEventMetricTypes">
+              <PropertyRef Name="SubTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Metrics_EventID">
+          <End Role="MediaEvents" Type="Self.MediaEvents" Multiplicity="1" />
+          <End Role="MediaEventMetrics" Type="Self.MediaEventMetrics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaEvents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MediaEventMetrics">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Metrics_TypeID">
+          <End Role="MediaEvents" Type="Self.MediaEvents" Multiplicity="1" />
+          <End Role="MediaEventMetrics" Type="Self.MediaEventMetrics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaEvents">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MediaEventMetrics">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PowModel2StoreContainer">
+          <EntitySet Name="Media" EntityType="Self.Media" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaEventDates" EntityType="Self.MediaEventDates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaEventMetrics" EntityType="Self.MediaEventMetrics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaEventMetricTypes" EntityType="Self.MediaEventMetricTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaEvents" EntityType="Self.MediaEvents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaEventSubTypes" EntityType="Self.MediaEventSubTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaEventTypes" EntityType="Self.MediaEventTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaMembers" EntityType="Self.MediaMembers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__MediaEven__Media__2724C5F0" Association="Self.FK__MediaEven__Media__2724C5F0">
+            <End Role="MediaEventTypes" EntitySet="MediaEventTypes" />
+            <End Role="MediaEventSubTypes" EntitySet="MediaEventSubTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MediaEven__Media__2818EA29" Association="Self.FK__MediaEven__Media__2818EA29">
+            <End Role="MediaEventTypes" EntitySet="MediaEventTypes" />
+            <End Role="MediaEventSubTypes" EntitySet="MediaEventSubTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MediaEven__SubTy__290D0E62" Association="Self.FK__MediaEven__SubTy__290D0E62">
+            <End Role="MediaEventSubTypes" EntitySet="MediaEventSubTypes" />
+            <End Role="MediaEventMetricTypes" EntitySet="MediaEventMetricTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Metrics_EventID" Association="Self.FK_Metrics_EventID">
+            <End Role="MediaEvents" EntitySet="MediaEvents" />
+            <End Role="MediaEventMetrics" EntitySet="MediaEventMetrics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Metrics_TypeID" Association="Self.FK_Metrics_TypeID">
+            <End Role="MediaEvents" EntitySet="MediaEvents" />
+            <End Role="MediaEventMetrics" EntitySet="MediaEventMetrics" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PowModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Medium">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatorID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Program" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Month" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Impact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Feedback" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="Project" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MediaEvent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MediaID" Type="Int32" />
+          <Property Name="CreatorID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MediaType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EventTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EventDate" Type="DateTime" Precision="3" />
+          <Property Name="Option1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Option2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Option3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="IsUsed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Count2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description2" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EventTypeID" Type="Int32" />
+          <Property Name="EventSubTypeID" Type="Int32" />
+          <NavigationProperty Name="MediaEventMetrics" Relationship="PowModel2.FK_Metrics_EventID" FromRole="MediaEvent" ToRole="MediaEventMetric" />
+          <NavigationProperty Name="MediaEventMetrics1" Relationship="PowModel2.FK_Metrics_TypeID" FromRole="MediaEvent" ToRole="MediaEventMetric" />
+        </EntityType>
+        <EntityContainer Name="PowEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Media" EntityType="Self.Medium" />
+          <EntitySet Name="MediaEvents" EntityType="Self.MediaEvent" />
+          <EntitySet Name="MediaEventDates" EntityType="PowModel2.MediaEventDate" />
+          <EntitySet Name="MediaEventMetrics" EntityType="PowModel2.MediaEventMetric" />
+          <EntitySet Name="MediaEventMetricTypes" EntityType="PowModel2.MediaEventMetricType" />
+          <EntitySet Name="MediaEventSubTypes" EntityType="PowModel2.MediaEventSubType" />
+          <EntitySet Name="MediaEventTypes" EntityType="PowModel2.MediaEventType" />
+          <EntitySet Name="MediaMembers" EntityType="PowModel2.MediaMember" />
+          <AssociationSet Name="FK_Metrics_EventID" Association="PowModel2.FK_Metrics_EventID">
+            <End Role="MediaEvent" EntitySet="MediaEvents" />
+            <End Role="MediaEventMetric" EntitySet="MediaEventMetrics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Metrics_TypeID" Association="PowModel2.FK_Metrics_TypeID">
+            <End Role="MediaEvent" EntitySet="MediaEvents" />
+            <End Role="MediaEventMetric" EntitySet="MediaEventMetrics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MediaEven__SubTy__290D0E62" Association="PowModel2.FK__MediaEven__SubTy__290D0E62">
+            <End Role="MediaEventSubType" EntitySet="MediaEventSubTypes" />
+            <End Role="MediaEventMetricType" EntitySet="MediaEventMetricTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MediaEven__Media__2724C5F0" Association="PowModel2.FK__MediaEven__Media__2724C5F0">
+            <End Role="MediaEventType" EntitySet="MediaEventTypes" />
+            <End Role="MediaEventSubType" EntitySet="MediaEventSubTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MediaEven__Media__2818EA29" Association="PowModel2.FK__MediaEven__Media__2818EA29">
+            <End Role="MediaEventType" EntitySet="MediaEventTypes" />
+            <End Role="MediaEventSubType" EntitySet="MediaEventSubTypes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="MediaEventDate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" />
+          <Property Name="EventDate" Type="DateTime" Precision="3" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+          <Property Name="IsUsed" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="MediaEventMetric">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <Property Name="MetricTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="Boolean" />
+          <Property Name="Timestamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MediaEvent" Relationship="PowModel2.FK_Metrics_EventID" FromRole="MediaEventMetric" ToRole="MediaEvent" />
+          <NavigationProperty Name="MediaEvent1" Relationship="PowModel2.FK_Metrics_TypeID" FromRole="MediaEventMetric" ToRole="MediaEvent" />
+        </EntityType>
+        <EntityType Name="MediaEventMetricType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubTypeID" Type="Int32" />
+          <Property Name="UID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DataType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Year" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="Boolean" />
+          <Property Name="URL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MediaEventSubType" Relationship="PowModel2.FK__MediaEven__SubTy__290D0E62" FromRole="MediaEventMetricType" ToRole="MediaEventSubType" />
+        </EntityType>
+        <EntityType Name="MediaEventSubType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MediaTypeID" Type="Int32" />
+          <Property Name="UID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="Boolean" />
+          <NavigationProperty Name="MediaEventMetricTypes" Relationship="PowModel2.FK__MediaEven__SubTy__290D0E62" FromRole="MediaEventSubType" ToRole="MediaEventMetricType" />
+          <NavigationProperty Name="MediaEventType" Relationship="PowModel2.FK__MediaEven__Media__2724C5F0" FromRole="MediaEventSubType" ToRole="MediaEventType" />
+          <NavigationProperty Name="MediaEventType1" Relationship="PowModel2.FK__MediaEven__Media__2818EA29" FromRole="MediaEventSubType" ToRole="MediaEventType" />
+        </EntityType>
+        <EntityType Name="MediaEventType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MediaEventSubTypes" Relationship="PowModel2.FK__MediaEven__Media__2724C5F0" FromRole="MediaEventType" ToRole="MediaEventSubType" />
+          <NavigationProperty Name="MediaEventSubTypes1" Relationship="PowModel2.FK__MediaEven__Media__2818EA29" FromRole="MediaEventType" ToRole="MediaEventSubType" />
+        </EntityType>
+        <EntityType Name="MediaMember">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MediaID" Type="Int32" />
+          <Property Name="MemberID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsUsed" Type="Boolean" />
+          <Property Name="Modified" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_Metrics_EventID">
+          <End Type="PowModel2.MediaEvent" Role="MediaEvent" Multiplicity="1" />
+          <End Type="PowModel2.MediaEventMetric" Role="MediaEventMetric" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaEvent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MediaEventMetric">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Metrics_TypeID">
+          <End Type="PowModel2.MediaEvent" Role="MediaEvent" Multiplicity="1" />
+          <End Type="PowModel2.MediaEventMetric" Role="MediaEventMetric" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaEvent">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MediaEventMetric">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MediaEven__SubTy__290D0E62">
+          <End Type="PowModel2.MediaEventSubType" Role="MediaEventSubType" Multiplicity="0..1" />
+          <End Type="PowModel2.MediaEventMetricType" Role="MediaEventMetricType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaEventSubType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MediaEventMetricType">
+              <PropertyRef Name="SubTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MediaEven__Media__2724C5F0">
+          <End Type="PowModel2.MediaEventType" Role="MediaEventType" Multiplicity="0..1" />
+          <End Type="PowModel2.MediaEventSubType" Role="MediaEventSubType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaEventType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MediaEventSubType">
+              <PropertyRef Name="MediaTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MediaEven__Media__2818EA29">
+          <End Type="PowModel2.MediaEventType" Role="MediaEventType" Multiplicity="0..1" />
+          <End Type="PowModel2.MediaEventSubType" Role="MediaEventSubType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaEventType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MediaEventSubType">
+              <PropertyRef Name="MediaTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PowModel2StoreContainer" CdmEntityContainer="PowEntities4">
+          <EntitySetMapping Name="Media">
+            <EntityTypeMapping TypeName="PowModel2.Medium">
+              <MappingFragment StoreEntitySet="Media">
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Project" ColumnName="Project" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CreatorID" ColumnName="CreatorID" />
+                <ScalarProperty Name="Program" ColumnName="Program" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Impact" ColumnName="Impact" />
+                <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaEvents">
+            <EntityTypeMapping TypeName="PowModel2.MediaEvent">
+              <MappingFragment StoreEntitySet="MediaEvents">
+                <ScalarProperty Name="EventSubTypeID" ColumnName="EventSubTypeID" />
+                <ScalarProperty Name="EventTypeID" ColumnName="EventTypeID" />
+                <ScalarProperty Name="Description2" ColumnName="Description2" />
+                <ScalarProperty Name="Count2" ColumnName="Count2" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MediaID" ColumnName="MediaID" />
+                <ScalarProperty Name="CreatorID" ColumnName="CreatorID" />
+                <ScalarProperty Name="MediaType" ColumnName="MediaType" />
+                <ScalarProperty Name="EventTitle" ColumnName="EventTitle" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="Option1" ColumnName="Option1" />
+                <ScalarProperty Name="Option2" ColumnName="Option2" />
+                <ScalarProperty Name="Option3" ColumnName="Option3" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaEventDates">
+            <EntityTypeMapping TypeName="PowModel2.MediaEventDate">
+              <MappingFragment StoreEntitySet="MediaEventDates">
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaEventMetrics">
+            <EntityTypeMapping TypeName="PowModel2.MediaEventMetric">
+              <MappingFragment StoreEntitySet="MediaEventMetrics">
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="MetricTypeID" ColumnName="MetricTypeID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaEventMetricTypes">
+            <EntityTypeMapping TypeName="PowModel2.MediaEventMetricType">
+              <MappingFragment StoreEntitySet="MediaEventMetricTypes">
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="SubTypeID" ColumnName="SubTypeID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaEventSubTypes">
+            <EntityTypeMapping TypeName="PowModel2.MediaEventSubType">
+              <MappingFragment StoreEntitySet="MediaEventSubTypes">
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="MediaTypeID" ColumnName="MediaTypeID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaEventTypes">
+            <EntityTypeMapping TypeName="PowModel2.MediaEventType">
+              <MappingFragment StoreEntitySet="MediaEventTypes">
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaMembers">
+            <EntityTypeMapping TypeName="PowModel2.MediaMember">
+              <MappingFragment StoreEntitySet="MediaMembers">
+                <ScalarProperty Name="Modified" ColumnName="Modified" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="MediaID" ColumnName="MediaID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
